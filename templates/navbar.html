@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg " style="background-color:rgb(175, 175, 255);">
+    <div class="container-fluid">
+        <a href="{% url 'myapp:home' %}" class="navbar-brand">Image Sharer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-targt="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="{% url 'myapp:home' %}" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'myapp:post' %}" class="nav-link">Add a new post</a>
+            </li>
+         
+        </ul>
+        </div>
+    </div>
+</nav>

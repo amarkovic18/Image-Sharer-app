@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block style %}
+a.btn{
+    display:inline-block;
+    margin:0 55px;
+}
+a.btn:hover{
+    background-color:rgb(88, 88, 230)!important;
+    transition: background-color 0.5s;
+}
+p{
+    font-size:20px;
+}
+{% endblock %}
+{% block title %}Mountain upload images {% endblock %}
+{% block body %}
+{% load thumbnail %}
+<div class="row">
+    {% for post in posts %}
+    <div class="col-sm-6 col-md-3 my-5">
+        <div class="card offset-1" style="width:16rem;">
+            {% thumbnail post.image '200x200' crop="center" as im %}
+            <img src="{{im.url}}"  width="{{im.width}}" height="{{im.height}}" class="card-img-top" alt="">
+            {% endthumbnail %}
+            <div class="card-body">
+                <p class="card-text text-center">{{post.text}}</p>
+                <a href="{% url 'myapp:detail' post.id %}" class="btn text-white" style="background-color:rgb(75, 82, 180);" type="button">View Detail</a>
+            </div>
+        </div>
+</div>
+{%  empty %}
+<div class="col-sm-6 col-md-4 my-5 offset-4 text-center">
+    <h1>Welcome!</h1>
+    <p>Do you want to upload a new mountain image? Click below!</p>
+    <a href="{% url 'myapp:post' %}" class="btn btn-lg text-white" style="background-color:rgb(75, 82, 180);">Upload</a> 
+</div>
+    
+    {% endfor %}
+</div>
+{% endblock %}
